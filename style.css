@@ -35,10 +35,7 @@ ul{
 
 body {
     background-color: #121214;
-    background-image: var(--bg);
-    background-size: auto;
-    background-repeat: repeat;
-        
+    background-image: var(--bg);        
    }
 
    body *{
