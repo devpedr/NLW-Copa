@@ -1,0 +1,174 @@
+*{
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: 0 auto;
+    
+    
+}
+:root{
+    --bg:url(./assets/back2022.jpg);
+    --bg-card:	#1D1C19;
+    --text-data:#FFD700;
+    --text-dia:#FFFFFF;
+    --border-card:#746615;
+    --border-card-bottom:#FFD700;
+}
+ul{
+    list-style: none;/*Tirar os pontinhos da list*/
+}
+/*body blue*/
+.blue{
+    --bg:url(./assets/back2022.jpg);
+    --bg-card:#202024;
+    --border-card:#338AF3;
+    --border-card-bottom:#338AF3;
+}
+/*body green*/
+.red{
+    --bg:url(./assets/back2022.jpg);
+    --bg-card:#1A1F1B;
+    --border-card:#fd0e0696;
+    --border-card-bottom:#fd0e0696;
+
+}
+
+
+body {
+    background-color: #121214;
+    background-image: var(--bg);
+    background-size: auto;
+    background-repeat: repeat;
+        
+   }
+
+   body *{
+    font-family: 'roboto',sans-serif;
+   }
+
+#container{
+    width: fit-content; /*Fit(encixa) encaixa o conteudo em outra caixa(body)*/
+    margin: auto;
+    padding-top: 52px;    
+    
+}
+#calendar{
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+header{
+    margin-bottom: 63px;
+    text-align: center;
+}
+
+
+.card{
+    background:var(--bg-card);
+    border-bottom: var(--border-card-bottom) solid 2px;
+    border-radius: 6px;
+
+    padding: 32px 23px;
+    text-align: center; /*Alinhar todos os textos*/
+    margin-bottom: 32px;
+   
+}
+.card h2{ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    
+
+    
+    color: var(--text-data);
+    
+    font-weight: 700;
+    font-size: 24px;
+    border: solid 1px var(--border-card);
+    border-radius: 6px;
+    padding: 8px 16px;
+    margin-bottom: 53px;
+
+    width: fit-content;/*deixar o tamanho da box igual*/
+    margin-inline: auto ; /* deixar mesmo tamanho os dois lado da box*/
+    
+}
+
+
+.card ul{    
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 270px;  
+
+}/*A soma dos gaps é equivalente a o espaçamento completo de cada li, para fazer a linha entre elas*/
+
+.card ul li + li{ /*Fazer a linha entre as bandeiras*/
+    padding-top: 24px;
+    border-top: #323238 solid 1px;
+}
+
+.card h2 span{
+    color:var(--text-dia);
+    
+    font-size: 14px;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    
+}
+
+.card ul li{
+    
+    display: flex;
+    align-items: center;
+    justify-content:space-between; /*espaço entre os elementos*/
+    gap: 24px;/*Tamanho do espaço entre eles*/
+    
+}
+.card ul li strong{
+
+    font-size: 36px;
+    font-weight: 900;
+    line-height: 125%;
+    color: var(--text-dia);
+    
+}
+
+/*Transição de cada propriedade*/
+.card h2:hover,
+.card ul li strong:hover, /*selector :hover, interpreta quando o mouse passa*/
+.card ul li img:hover{
+
+transform:scale(1.1);
+}
+.card h2,
+.card ul li strong,
+.card ul li img{
+    transition:transform 0.3s;
+}
+/*Animação dos cards*/
+@keyframes ani{
+    0%{
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 1;
+    }
+}
+
+.card {
+    opacity: 0;
+    animation: ani .2s forwards;
+}
+/*media desktop*/
+@media(min-width:700px){
+    #calendar{
+        max-width: 670px;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+    }
+}
